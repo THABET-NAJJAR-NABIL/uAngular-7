@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Update</h5>
+          <form name="form"(ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+
+            <div class="form-group">
+              <input type="text"   [(ngModel)]="model.race" value="{{oldModel.marsupilami_Information.marsupilami_Race}}" class="form-control" name="race"required  #race="ngModel" [ngClass]="{'is-invalid' :f.submitted && race.invalid}"/>
+
+              <div class="invalid-feedback">
+                <div>Race is required</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input type="text" name="famille" [(ngModel)]="model.famille"  value="{{oldModel.marsupilami_Information.marsupilami_Famille}}" class="form-control" placeholder="Famille" required #famille="ngModel" [ngClass]="{'is-invalid' :f.submitted && famille.invalid}"/>
+
+              <div class="invalid-feedback">
+                <div>Famille is required</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input type="text"  name="nourriture" [(ngModel)]="model.nourriture"   class="form-control" value="{{oldModel.marsupilami_Information.marsupilami_Nourriture}}" required #nourriture="ngModel" [ngClass]="{'is-invalid' :f.submitted && nourriture.invalid}"/>
+
+              <div class="invalid-feedback">
+                <div>Nourriture is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+
+              <input type="text" name="age"  [(ngModel)]="model.age"   class="form-control" value="{{oldModel.marsupilami_Information.marsupilami_Age}}" required #age="ngModel" [ngClass]="{'is-invalid' :f.submitted && age.invalid}"/>
+
+              <div class="invalid-feedback">
+                <div>Age is required</div>
+              </div>
+            </div>
+
+
+
+
+
+
+            <div>
+              <span class="alert-danger">{{ error }}</span>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" >Register</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+
+<div class="row mt-5">
+  <div class="col-md-4 mb-3">
+  <div class="card text-left">
+      <div class="card-body">
+        <div class = "float-lg-right">
+          <a class="btn btn-primary" routerLink="UpdateProfil"><span class="fa fa-users-cog"></span></a>
+        </div>
+        <div class = "float-lg-right">
+          <a class="btn btn-primary" routerLink="Register"><span class="fa fa-user-plus"></span></a>
+        </div>
+        <span class="alert-warning"><h5>Me</h5></span>
+        <h5 class="card-title"> Race :   {{marsupilami_Information.marsupilami_Race}}</h5>
+        <h5 class="card-text">Famille : {{marsupilami_Information.marsupilami_Famille}}</h5>
+        <h5 class="card-text">Nourriture : {{marsupilami_Information.marsupilami_Nourriture}}</h5>
+        <h5 class="card-text">Age :  {{marsupilami_Information.marsupilami_Age}}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-12">
+<div class="col mt-6">
+  <div class="alert-light">
+    <span class="alert-dark"><h5>Fiends</h5></span>
+  </div>
+  <div class="col-md-6 mb-3" *ngFor="let friend of marsupilami_Information.marsupilami_friends">
+    <div class="card text-left">
+      <div class="card-body">
+        <div class = "float-lg-right">
+          <a class="btn btn-danger" (click)="delete_Friend_Profil(friend.friend_RealID)"><span class="fa fa-user-minus"></span></a>
+        </div>
+        <h5 class="card-title">{{friend.friend_Race}}</h5>
+        <h5 class="card-title">{{friend.friend_Famille}}</h5>
+        <h5 class="card-title">{{friend.friend_Nourriture}}</h5>
+        <h5 class="card-text">{{friend.friend_Age}}</h5>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="col mt-6">
+  <div class="alert-light">
+  <span class="alert-dark"><h5>Marsuplimis</h5></span>
+  </div>
+  <div class="col-md-6 mb-3" *ngFor="let masupilami of marsupilami_List">
+    <div class="card text-left">
+      <div class="card-body">
+        <div class = "float-lg-right">
+          <a class="btn btn-success" (click)="add_Friend_Profil(masupilami._id)"><span class="fa fa-user-plus"></span></a>
+        </div>
+        <h5 class="card-title">{{masupilami.marsupilami_Race}}</h5>
+        <h5 class="card-title">{{masupilami.marsupilami_Famille}}</h5>
+        <h5 class="card-title">{{masupilami.marsupilami_Nourriture}}</h5>
+        <h5 class="card-text">{{masupilami.marsupilami_Age}}</h5>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>

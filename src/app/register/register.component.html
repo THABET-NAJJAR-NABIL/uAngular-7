@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Register</h5>
+          <form name="form"(ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+
+            <div class="form-group">
+              <input type="text" name="race"  [(ngModel)]="model.first_name"  class="form-control" name="First Name" placeholder="First name" required  #first_name="ngModel" [ngClass]="{'is-invalid' :f.submitted && first_name.invalid}"/>
+
+              <div class="invalid-feedback">
+              <div>Name is required</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input type="text" name="last_name" [(ngModel)]="model.last_name"  class="form-control" placeholder="Last name" required #last_name="ngModel" [ngClass]="{'is-invalid' :f.submitted && last_name.invalid}"/>
+
+              <div class="invalid-feedback">
+                <div>Last name is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+
+              <input type="email" name="email"  [(ngModel)]="model.email"   class="form-control" placeholder="Email" required email #email="ngModel" [ngClass]="{'is-invalid' :f.submitted && email.invalid}"/>
+
+              <div *ngIf="f.submitted && email.invalid " class="invalid-feedback">
+                <div *ngIf="email.errors.required">Email is required</div>
+                <div *ngIf="email.errors.email">Email must be a valid email address</div>
+
+              </div>
+            </div>
+
+            <div class="form-group">
+
+              <input type="password" name="password"  [(ngModel)]="model.password"  minlength="5"   class="form-control" placeholder="Password" required #password="ngModel" [ngClass]="{'is-invalid' :f.submitted && password.invalid}"/>
+
+              <div *ngIf="f.submitted && password.invalid "  class="invalid-feedback">
+                <div  *ngIf="password.errors.required">Password is required</div>
+                <div   *ngIf="password.errors.minlength">Password must contain 5 characters </div>
+              </div>
+            </div>
+              <div class="form-group">
+
+                <input type="password"  name="password_2" [(ngModel)]="model.password_2" minlength="5" appConfimEqualValidator="password" class="form-control" placeholder="Retype Password" required  #password_2="ngModel" [ngClass]="{'is-invalid' :f.submitted && password_2.invalid}"/>
+
+                <div *ngIf="f.submitted && password_2.invalid"  class="invalid-feedback">
+                  <div  *ngIf="password_2.errors.required">Password is required</div>
+                  <div   *ngIf="password_2.errors.minlength">Password must contain 5 characters </div>
+
+                </div>
+
+                <span class="invalid-feedback"  *ngIf="password_2.errors?.notEqual">Password do not match</span>
+              </div>
+            <div>
+              <span class="alert-danger">{{ error }}</span>
+            </div>
+            <div class="form-group">
+            <button class="btn btn-lg btn-primary btn-block " type="submit" >Register</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

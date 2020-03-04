@@ -1,0 +1,25 @@
+<div class="navbar">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" >
+  <a class="navbar-brand" routerLink="Home" routerLinkActive="active">Angular 8 Front-End Application</a>
+  <button class="btn btn-primary ml-auto" routerLink="Home" routerLinkActive="active">Home</button>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+    <ul class="navbar-nav text-right">
+      <li class="nav-item active">
+        <button class="btn btn-primary" *ngIf="service.LoggedIn()" routerLink="Profil" routerLinkActive="active">Profil</button>
+      </li>
+      <li class="nav-item active">
+        <button class="btn btn-primary" *ngIf="!service.LoggedIn()"  routerLink="Register" routerLinkActive="active">Register</button>
+      </li>
+      <li class="nav-item active">
+        <button class="btn btn-primary" *ngIf="!service.LoggedIn()" routerLink="Connection" routerLinkActive="active">Log In</button>
+      </li>
+      <li class="nav-item active">
+        <button class="btn btn-primary" *ngIf="service.LoggedIn()" (click)="service.LogOut()">Log Out</button>
+      </li>
+    </ul>
+  </div>
+</nav>
+</div>
