@@ -7,11 +7,11 @@
           <form name="form"(ngSubmit)="f.form.valid && VerifyConnection()" #f="ngForm" novalidate>
             <div class="form-group">
 
-              <input type="email" name="email"  [(ngModel)]="model.email"   class="form-control" placeholder="Email" required email #email="ngModel" [ngClass]="{'is-invalid' :f.submitted && email.invalid}"/>
+              <input type="email" name="username"  [(ngModel)]="model.username"   class="form-control" placeholder="Email" required email #email="ngModel" [ngClass]="{'is-invalid' :f.submitted && email.invalid}"/>
 
               <div *ngIf="f.submitted && email.invalid " class="invalid-feedback">
                 <div *ngIf="email.errors.required">Email is required</div>
-                <div *ngIf="email.errors.email">Email must be a valid email adresse</div>
+                <div *ngIf="email.errors.email">Email must be a valid email address</div>
 
               </div>
             </div>

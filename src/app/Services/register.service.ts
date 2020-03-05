@@ -7,13 +7,13 @@ import {Router} from '@angular/router';
   providedIn: 'root'
 })
 export class RegisterService {
-url = 'http://localhost:5000/api/v1';
+url = 'http://localhost:8080';
   constructor(private httpClient: HttpClient, private router: Router) { }
 
   // POST request : To verify user authentication using email and password
   Verify_Connection_server(email, password) {
-    return this.httpClient.post<any>(this.url + '/connection-verify', {
-      'email': email,
+    return this.httpClient.post<any>(this.url + '/users', {
+      'username': email,
       'password': password
     });
   }

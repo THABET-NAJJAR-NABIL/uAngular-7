@@ -1,7 +1,7 @@
-import {Component, OnInit,} from '@angular/core';
-import {RegisterService} from "../Services/register.service";
+import {Component, OnInit, } from '@angular/core';
+import {RegisterService} from '../Services/register.service';
 
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-connection',
@@ -11,20 +11,21 @@ import {Router} from "@angular/router";
 export class ConnectionComponent implements OnInit {
   constructor(private service: RegisterService, private router: Router) { }
 
-  error='';
-model:any=[];
+  error = '';
+model: any = [];
 
   ngOnInit() {
   }
-  //Executed onSubmit the form connection,
-   VerifyConnection(){
-   this.service.Verify_Connection_server(this.model.email,this.model.password)
+  // Executed onSubmit the form connection,
+   VerifyConnection() {
+   this.service.Verify_Connection_server(this.model.username, this.model.password)
      .subscribe(response => {
+       console.log(response)
        localStorage.setItem('token', response.token);
          this.router.navigate(['Home']);
-     },err=>{
+     }, err => {
        if (err.status === 404) {
-         this.error=err.error.message;
+         this.error = err.error.message;
        }
      });
   }
